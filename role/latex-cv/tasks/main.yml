@@ -1,0 +1,73 @@
+---
+- name: "Create temporary build directory"
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: build
+  register: tempdir
+
+- name: generate template cv latex
+  ansible.builtin.template:
+    src: cv.tex.j2
+    dest: "{{ tempdir.path }}/cv-gen.tex"
+
+- name: copy the latex file to make it anonymous
+  ansible.builtin.copy:
+    src: "{{ tempdir.path }}/cv-gen.tex"
+    dest: "{{ tempdir.path }}/cv-gen-annonym.tex"
+
+- name: make it anonymous
+  ansible.builtin.replace:
+    path: "{{ tempdir.path }}/cv-gen-annonym.tex"
+    regexp: '^.*(\+336|Vernouillet).*$'
+    replace: ''
+
+- name: Run container Latex to convert pdf
+  docker_container:
+    name: tex-to-pdf-generator
+    detach: false
+    auto_remove: true
+    image: "registry.gitlab.com/islandoftex/images/texlive:{{ latex_container_version }}"
+    command: "latexmk -f -pdf -jobname=cv  -output-directory=/data/build /data/cv-gen.tex"
+    volumes:
+      - "{{ tempdir.path }}:/data"
+
+- name: Run container Latex to convert anonymous pdf 
+  docker_container:
+    name: tex-to-pdf-generator
+    detach: false
+    auto_remove: true
+    image: "registry.gitlab.com/islandoftex/images/texlive:{{ latex_container_version }}"
+    command: "latexmk -f -pdf -jobname=cv-annonym  -output-directory=/data/build /data/cv-gen-annonym.tex"
+    volumes:
+      - "{{ tempdir.path }}:/data"
+
+- name: Run container Rclone to copy cv on google drive
+  docker_container:
+    name: copy-to-gdrive
+    detach: false
+    auto_remove: false
+    image: "rclone/rclone:{{ rclone_container_version }}"
+    command: "copy --include *.pdf /data/build  gdrive:{{ gdrive_path }} -v"
+    volumes:
+      - "{{ tempdir.path }}:/data"
+    env:
+      RCLONE_CONFIG_GDRIVE_TYPE: "drive"
+      RCLONE_CONFIG_GDRIVE_SCOPE: "drive"
+      RCLONE_CONFIG_GDRIVE_TOKEN: "{{ rclone_gdrive_token | to_json }}"
+  register: docker_container_output
+
+- name: show Rclone output
+  debug:
+    msg: "{{ docker_container_output.container.Output }}"
+
+- name: Delete container Rclone
+  docker_container:
+    state: absent
+    name: copy-to-gdrive
+
+- name: Remove the temporary directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ tempdir.path }}"
+    state: absent
+  when: tempdir.path is defined

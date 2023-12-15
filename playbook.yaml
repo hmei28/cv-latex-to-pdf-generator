@@ -1,0 +1,5 @@
+---
+- name: build cv to pdf
+  hosts: localhost
+  roles:
+    - role/latex-cv

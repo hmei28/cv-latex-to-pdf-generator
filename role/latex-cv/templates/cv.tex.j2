@@ -1,0 +1,64 @@
+\documentclass[11pt, a4paper]{moderncv}
+\moderncvtheme[{{latexcv_color}}]{ {{-latexcv_model-}} }
+
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.85]{geometry}
+\usepackage{url}
+\usepackage{ragged2e}
+\usepackage{blindtext}
+\usepackage{fontawesome5}
+
+\firstname{ {{-firstname-}} }
+\familyname{ {{-familyname-}} }
+\title{ {{-title-}} }
+\address{}{ {{-address-}} }
+\mobile{ {{-mobile-}} }
+\email{ {{-email-}} }
+\social[linkedin]{ {{-linkedin-}} }
+\social[github]{ {{-github-}} }
+
+\extrainfo{\faIcon[regular]{address-card} \href{https://{{website-}} }{ {{-website-}} }}
+\quote{ {{-short_description-}} }
+
+\begin{document}
+
+
+\maketitle
+\section{\faIcon{building} Expériences professionnelles}
+{% for exp in experiences %}
+\cventry{ {{-exp.date-}} }{ {{-exp.title-}} }{ {{-exp.company-}} }{ {{-exp.location-}} }{}{
+{{-exp.description-}} \newline{}%
+  \begin{itemize}
+{% for task in exp.tasks %}
+    \item {{task}}
+{% endfor -%} 
+  \end{itemize}
+  \hfill \break
+  \textit{Environnement technique}: {{exp.technical_env}}\newline{}%
+}
+{% endfor %}
+\section{\faIcon{lightbulb} Compétences}
+{% for sk in skills  %}
+\cvline{\textbf{ {{-sk.type-}} }}{\hspace{1cm} {{-sk.skill-}} }
+{% endfor %}
+
+
+\section{\faIcon{graduation-cap} Formations}
+{% for formation in  formations %}
+\cventry{ {{-formation.date-}} }{ {{-formation.degree-}} }{}{}{}{ {{-formation.school-}} }
+{% endfor %}
+
+
+\section{\faIcon{language} Langues}
+{% for lg  in languages  %}
+\cvitem{ {{-lg.language-}} }{ {{-lg.level-}} }
+{% endfor %}
+
+
+\section{\faIcon{heart} Centres d'intérêt}
+{% for hb in  hobbies %}
+\cvline{ {{-hb.hobby-}} }{ {{-hb.description-}} }
+{% endfor %}
+
+
+\end{document}

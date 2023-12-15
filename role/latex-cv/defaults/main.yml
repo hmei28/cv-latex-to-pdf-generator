@@ -1,0 +1,57 @@
+---
+
+latex_container_version: TL2023-2023-12-10-full
+latexcv_model : "classic"
+latexcv_color: "blue" 
+
+gdrive_path: "cv"
+
+
+rclone_container_version: "1.65"
+rclone_gdrive_token: 
+  access_token: ""
+  token_type: "Bearer"
+  refresh_token : ""
+  expiry : ""
+
+
+firstname: ""
+familyname: ""
+title: ""
+address: ""
+mobile:  ""
+email: ""
+# user name of linkedin
+linkedin: ""
+# user name of github
+github: "" 
+website: ""
+short_description: ""
+
+
+experiences:
+  # - date: "AAAA--AAAA"
+  #   title: 
+  #   company: ""
+  #   location: ""
+  #   description: ""
+  #   technical_env: ""
+  #   tasks: [] # List of task
+  
+skills:
+  # - type: "Cloud"
+  #   skill: "Openstack, Vmwarecloud Director, AWS (Route53)"
+ 
+
+formations: 
+  # - date: ""
+  #   degree: ""
+  #   school: ""
+ 
+languages:
+  # - language: "English"
+  #   level: "C1"
+
+hobbies:
+  # - hobby: "Sport"
+  #   description: "Football"
