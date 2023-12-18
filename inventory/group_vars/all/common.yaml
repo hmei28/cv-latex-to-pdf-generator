@@ -85,7 +85,7 @@ skills:
   - type: "Infrastructure"
     skill: "VMWare, KVM"
   - type: "Sécurité"
-    skill: "Hachicorp Vault, keycloak VPN: WireGuard, Palo Alto, IPTable"
+    skill: "Hachicorp Vault, keycloak, VPN: WireGuard, Palo Alto, IPTable"
 
 
 formations: 
