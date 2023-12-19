@@ -73,7 +73,7 @@ skills:
   - type: "Container"
     skill: "Docker, Kubernetes, Rancher, Helm"
   - type: "Systèmes"
-    skill: "Ubuntu, Debian, Centos, Flatcar, Windows"
+    skill: "Ubuntu, Debian, Centos, Manjaro, Flatcar, Windows"
   - type: "Languages"
     skill: "Python, Bash, PowerShell, SQL"
   - type: "Monitoring"
