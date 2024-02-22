@@ -74,7 +74,7 @@ experiences:
 
 skills:
   - type: "Cloud"
-    skill: "Openstack, Vmwarecloud Director, AWS (Route53)"
+    skill: "Openstack, VMware Cloud Director, AWS (Route53)"
   - type: "Container"
     skill: "Docker, Kubernetes, Rancher, Helm"
   - type: "Systèmes"
