@@ -16,7 +16,7 @@ experiences:
     title: "Ingénieur Cloud DevOps"
     company: "Thales Services Numériques"
     location: "Elancourt"
-    description: "En tant que membre de l'équipe en charge de la gestion d'une plateforme de cloud privé, ma mission consiste à assurer le maintien opérationnel et la sécurité de l'infrastructure. Parallèlement, je participe à la mise en place d'une offre Kubernetes As A Service (KAAS), visant à fournir des clusters Kubernetes prêts à l'emploi et à les gérer pour nos clients."
+    description: "En tant que membre de l'équipe en charge de la gestion d'une plateforme de cloud privé, ma mission consiste à assurer le MCO/MCS de l'infrastructure. Parallèlement, je participe à la mise en place d'une offre Kubernetes As A Service, visant à fournir des clusters Kubernetes prêts à l'emploi."
     technical_env: "OpenStack, VCloudDirector, VMware, KVM Git, Gitlab-ci, Terraform, Ansible, Puppet, JIRA, Kubernetes, Vault, linux, Argocd,  Prometheus Stack."
     tasks:
       - "Automatiser les déploiements d’infrastructure."
