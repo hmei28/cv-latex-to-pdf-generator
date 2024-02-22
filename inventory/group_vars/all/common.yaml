@@ -20,7 +20,7 @@ experiences:
     technical_env: "OpenStack, VCloudDirector, VMware, KVM Git, Gitlab-ci, Terraform, Ansible, Puppet, JIRA, Kubernetes, Vault, linux, Argocd,  Prometheus Stack."
     tasks:
       - "Automatiser les déploiements d’infrastructure."
-      - "Automatiser Les mises à jour des plateformes de Cloud basées sur OpenStack, des recettes et des tests."
+      - "Automatiser Les mises à jour des plateformes de Cloud basées sur OpenStack."
       - "Maintenir et mettre à jour les playbook ansible existantes."
       - "Résoudre des incidents en investiguant sur les causes racines et en automatisant leur solution."
       - "Répondre aux requêtes utilisateurs et les conseiller."
