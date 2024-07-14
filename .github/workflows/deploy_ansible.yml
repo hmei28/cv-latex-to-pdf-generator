@@ -14,7 +14,7 @@ jobs:
           DEBUG_PASSWORD: ${{ secrets.VAULT_PASSWORD }}
         run: |
           echo $DEBUG_PASSWORD >> /tmp/txt
-          echo "$(cat /tmp/txt)"
+          cat /tmp/txt
       - name: Check out the repo
         uses: actions/checkout@v3
       - name: Run playbook
