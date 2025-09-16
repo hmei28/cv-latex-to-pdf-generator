@@ -18,7 +18,7 @@
 - name: make it anonymous
   ansible.builtin.replace:
     path: "{{ tempdir.path }}/cv-gen-annonym.tex"
-    regexp: '^.*(\+336|Vernouillet).*$'
+    regexp: '^.*(\+336|- France).*$'
     replace: ''
 
 - name: Run container Latex to convert pdf
