@@ -107,7 +107,7 @@ skills:
   - type: "Versionning"
     skill: "Gitlab, GitHub"
   - type: "Automatisation"
-    skill: "GitLab CI/CD, GitHub Actions, Ansible, IAC: Terraform, GitOps: ArgoCD, FluxCD, Stackstorm"
+    skill: "GitLab CI/CD, GitHub Actions, Ansible, IAC: Terraform, GitOps: ArgoCD, FluxCD"
   - type: "Infrastructure"
     skill: "VMWare, KVM"
   - type: "Sécurité"
