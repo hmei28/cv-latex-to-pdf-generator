@@ -21,22 +21,22 @@ title: ""
 address: ""
 mobile:  ""
 email: ""
-# user name of linkedin
+# LinkedIn username
 linkedin: ""
-# user name of github
+# GitHub username
 github: "" 
 website: ""
 short_description: ""
 
 
 experiences:
-  # - date: "AAAA--AAAA"
+  # - date: "YYYY--YYYY"
   #   title: 
   #   company: ""
   #   location: ""
   #   description: ""
   #   technical_env: ""
-  #   tasks: [] # List of task
+  #   tasks: [] # List of tasks
   
 skills:
   # - type: "Cloud"

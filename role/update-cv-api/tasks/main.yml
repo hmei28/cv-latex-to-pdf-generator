@@ -1,0 +1,98 @@
+---
+- name: Delete all existing data
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/all"
+    method: DELETE
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+  ignore_errors: yes
+
+- name: Update basic information (about)
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/about"
+    method: POST
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+    body_format: json
+    body: |
+      {
+        "firstname": "{{ firstname }}",
+        "familyname": "{{ familyname }}",
+        "title": "{{ title }}",
+        "email": "{{ email }}",
+        "linkedin": "{{ linkedin }}",
+        "github": "{{ github }}",
+        "website": "{{ website }}",
+        "available": {{ available | ternary('true', 'false') }},
+        "cv_url": "{{ cv_url }}",
+        "short_description": "{{ short_description }}",
+        "languages": {{ languages | to_json }}
+      }
+
+- name: Add professional experiences
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/experiences"
+    method: POST
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+    body_format: json
+    body: |
+      {
+        "date": {{ item.date | to_json }},
+        "title": {{ item.title | to_json }},
+        "company": {{ item.company | to_json }},
+        "location": {{ item.location | to_json }},
+        "description": {{ item.description | to_json }},
+        "technical_env": {{ item.technical_env | to_json }},
+        "tasks": [{% for task in item.tasks %}{"task": {{ task | to_json }}}{% if not loop.last %},{% endif %}{% endfor %}]
+      }
+  loop: "{{ experiences }}"
+
+- name: Add skills
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/skills"
+    method: POST
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+    body_format: json
+    body: |
+      {
+        "type": "{{ item.type }}",
+        "skill": "{{ item.skill }}"
+      }
+  loop: "{{ skills }}"
+
+- name: Add education
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/formations"
+    method: POST
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+    body_format: json
+    body: |
+      {
+        "date": "{{ item.date }}",
+        "degree": "{{ item.degree }}",
+        "school": "{{ item.school }}"
+      }
+  loop: "{{ formations }}"
+
+- name: Add hobbies
+  ansible.builtin.uri:
+    url: "{{ cv_api_base_url }}/hobbies"
+    method: POST
+    headers:
+      x-admin-token: "{{ cv_admin_token }}"
+      Content-Type: application/json
+    body_format: json
+    body: |
+      {
+        "hobby": "{{ item.hobby }}",
+        "description": "{{ item.description }}"
+      }
+  loop: "{{ hobbies }}"

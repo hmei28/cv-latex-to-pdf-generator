@@ -2,6 +2,8 @@
 latexcv_model : "classic"
 latexcv_color: "blue"
 
+cv_api_base_url: "https://portfolio.ettassi.fr/api/v1/admin"
+
 firstname: "Ahmed"
 familyname: "Ettassi"
 title: "Ingénieur Cloud DevOps"
@@ -10,6 +12,8 @@ linkedin: "ahmed-ettassi"
 github: "hmei28"
 website: "portfolio.ettassi.fr"
 short_description: "Compétences approfondies en gestion de cloud, automatisation des processus et orchestration avec Kubernetes."
+cv_url: "https://drive.google.com/file/d/1oFmlxlweuZ-DK1DUhsh8zKC4Z8p2wPxq/view?usp=sharing"
+"available": false
 
 experiences:
   - date: "04/2024 – En cours"
@@ -103,14 +107,14 @@ skills:
   - type: "Versionning"
     skill: "Gitlab, GitHub"
   - type: "Automatisation"
-    skill: "GitLab CI/CD, GitHub Actions, Ansible, IAC: Terraform, GitOps: ArgoCD, FluxCD"
+    skill: "GitLab CI/CD, GitHub Actions, Ansible, IAC: Terraform, GitOps: ArgoCD, FluxCD, Stackstorm"
   - type: "Infrastructure"
     skill: "VMWare, KVM"
   - type: "Sécurité"
     skill: "Hachicorp Vault, VPN: WireGuard, Palo Alto, IPTable"
 
 
-formations: 
+formations:
   - date: "2019"
     degree: "Diplôme Master 2 Ingénierie des Réseaux et Systèmes"
     school: "Université de Versailles"

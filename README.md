@@ -8,7 +8,7 @@ Ansible role to generate cv pdf from latex and push to google drive
 
 ## Getting Started
 
-Edit /inventory/group_vars/all/common.yaml to spécify all your information 
+Edit /inventory/group_vars/all/common.yaml to specify all your information 
 Edit /inventory/group_vars/all/secret.yaml to add access api to google drive : 
 ```bash 
 rclone_gdrive_token: 
@@ -26,7 +26,7 @@ Vault file secret
 ansible-vault encrypt ./inventory/group_vars/all/secret.yaml
 ```
 
-Run Plaubook
+Run Playbook
 
 ```bash
 ansible-playbook playbook.yaml  --ask-vault-pass

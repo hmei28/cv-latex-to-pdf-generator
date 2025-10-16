@@ -1,0 +1,22 @@
+---
+# Variables for the CV API
+cv_api_base_url: "https://portfolio.example.fr/api/v1/admin"
+cv_admin_token: ""  # To be defined in secret.yaml
+
+# Variables for CV data (will be overridden by group_vars)
+firstname: ""
+familyname: ""
+title: ""
+email: ""
+linkedin: ""
+github: ""
+website: ""
+short_description: ""
+available: false
+cv_url: ""
+
+experiences: []
+skills: []
+formations: []
+languages: []
+hobbies: []
